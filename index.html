@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Seminar Docx Generator</title>
@@ -10,35 +11,44 @@
       font-family: Arial, sans-serif;
       margin: 2rem;
     }
+
     label {
       display: block;
       margin-top: 1rem;
     }
-    input, textarea {
+
+    input,
+    textarea {
       width: 300px;
       padding: 0.5rem;
       margin-top: 0.3rem;
     }
+
     button {
       margin-top: 1.5rem;
       padding: 0.7rem 1.5rem;
       font-size: 1rem;
     }
+
     .form-row {
       display: flex;
       align-items: center;
       margin-bottom: 1rem;
     }
+
     .form-row label {
-      width: 150px; /* adjust width as needed */
+      width: 150px;
+      /* adjust width as needed */
       margin-right: 1rem;
       font-weight: bold;
     }
+
     .form-row input,
     .form-row textarea {
       flex: 1;
       padding: 0.5rem;
     }
+
     /* Optional: styling for the form container */
     form {
       max-width: 600px;
@@ -46,28 +56,29 @@
     }
   </style>
 </head>
+
 <body>
   <h1>Seminar Docx Generator</h1>
   <form id="seminarForm">
     <div class="form-row">
       <label for="filename">Filename:</label>
-      <input type="text" id="filename" value="seminar_statement.docx"/>
+      <input type="text" id="filename" value="seminar_statement.docx" />
     </div>
     <div class="form-row">
       <label for="name">Name:</label>
-      <input type="text" id="name" required/>
+      <input type="text" id="name" required />
     </div>
     <div class="form-row">
       <label for="studentId">Student ID:</label>
-      <input type="text" id="studentId" required/>
+      <input type="text" id="studentId" required />
     </div>
     <div class="form-row">
       <label for="title">Title:</label>
-      <input type="text" id="title" required/>
+      <input type="text" id="title" required />
     </div>
     <div class="form-row">
       <label for="speaker">Speaker:</label>
-      <input type="text" id="speaker" required/>
+      <input type="text" id="speaker" required />
     </div>
     <div class="form-row">
       <label for="summary">Summary:</label>
@@ -83,9 +94,9 @@
   </form>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       const fields = ["filename", "name", "studentId", "title", "speaker", "summary", "reflection"];
-      fields.forEach(function(field) {
+      fields.forEach(function (field) {
         const storedValue = localStorage.getItem(field);
         if (storedValue) {
           document.getElementById(field).value = storedValue;
@@ -97,21 +108,21 @@
     const { Document, Packer, Paragraph, Table, TableRow, TableCell, AlignmentType, WidthType, HeightRule } = docx;
 
     // Listen for form submission
-    document.getElementById("seminarForm").addEventListener("submit", function(event) {
+    document.getElementById("seminarForm").addEventListener("submit", function (event) {
       event.preventDefault();
 
       // Gather form data
-      const filename   = document.getElementById("filename").value;
-      const name       = document.getElementById("name").value;
-      const studentId  = document.getElementById("studentId").value;
-      const title      = document.getElementById("title").value;
-      const speaker    = document.getElementById("speaker").value;
-      const summary    = document.getElementById("summary").value;
+      const filename = document.getElementById("filename").value;
+      const name = document.getElementById("name").value;
+      const studentId = document.getElementById("studentId").value;
+      const title = document.getElementById("title").value;
+      const speaker = document.getElementById("speaker").value;
+      const summary = document.getElementById("summary").value;
       const reflection = document.getElementById("reflection").value;
-      const today      = new Date();
+      const today = new Date();
       const formattedDate = today.getFullYear() + "." +
-                            String(today.getMonth() + 1).padStart(2, "0") + "." +
-                            String(today.getDate()).padStart(2, "0");
+        String(today.getMonth() + 1).padStart(2, "0") + "." +
+        String(today.getDate()).padStart(2, "0");
 
       // Build table rows following a layout similar to your Python code
 
@@ -126,170 +137,170 @@
       const row0 = new TableRow({
         height: { value: 1.19 * 567, rule: HeightRule.EXACT },
         children: [
-            new TableCell({ 
+          new TableCell({
             width: { size: 15, type: WidthType.PERCENTAGE },
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: "제출자", alignment: AlignmentType.CENTER })
+              new Paragraph({ text: "제출자", alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 15, type: WidthType.PERCENTAGE },
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: "성명", alignment: AlignmentType.CENTER })
+              new Paragraph({ text: "성명", alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 35, type: WidthType.PERCENTAGE },
             columnSpan: 3,
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: name, alignment: AlignmentType.CENTER })
+              new Paragraph({ text: name, alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 15, type: WidthType.PERCENTAGE },
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: "학번", alignment: AlignmentType.CENTER })
+              new Paragraph({ text: "학번", alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 20, type: WidthType.PERCENTAGE },
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: studentId, alignment: AlignmentType.CENTER })
+              new Paragraph({ text: studentId, alignment: AlignmentType.CENTER })
             ]
-            })
+          })
         ]
-        });
+      });
 
-        const row1 = new TableRow({
-        height: { value: 0.93 * 567, rule: HeightRule.EXACT },
+      const row1 = new TableRow({
+        height: { value: 1 * 567, rule: HeightRule.AT_LEAST },
         children: [
-            new TableCell({ 
+          new TableCell({
             width: { size: 15, type: WidthType.PERCENTAGE },
             verticalMerge: "restart",
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: "세미나", alignment: AlignmentType.CENTER })
+              new Paragraph({ text: "세미나", alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 15, type: WidthType.PERCENTAGE },
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: "제목", alignment: AlignmentType.CENTER })
+              new Paragraph({ text: "제목", alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 50, type: WidthType.PERCENTAGE },
             columnSpan: 4,
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: title, alignment: AlignmentType.CENTER })
+              new Paragraph({ text: title, alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 20, type: WidthType.PERCENTAGE },
             verticalMerge: "restart",
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: "", alignment: AlignmentType.CENTER })
+              new Paragraph({ text: "", alignment: AlignmentType.CENTER })
             ]
-            })
+          })
         ]
-        });
+      });
 
-        const row2 = new TableRow({
-        height: { value: 1 * 567, rule: HeightRule.EXACT },
+      const row2 = new TableRow({
+        height: { value: 1.2 * 567, rule: HeightRule.AT_LEAST },
         children: [
-            new TableCell({ 
+          new TableCell({
             width: { size: 15, type: WidthType.PERCENTAGE },
             verticalMerge: "continue",
             verticalAlign: "center",
             children: []
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 15, type: WidthType.PERCENTAGE },
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: "연사", alignment: AlignmentType.CENTER })
+              new Paragraph({ text: "연사", alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 15, type: WidthType.PERCENTAGE },
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: speaker, alignment: AlignmentType.CENTER })
+              new Paragraph({ text: speaker, alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 15, type: WidthType.PERCENTAGE },
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: "일시", alignment: AlignmentType.CENTER })
+              new Paragraph({ text: "일시", alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 20, type: WidthType.PERCENTAGE },
             columnSpan: 2,
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: formattedDate, alignment: AlignmentType.CENTER })
+              new Paragraph({ text: formattedDate, alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 20, type: WidthType.PERCENTAGE },
             verticalMerge: "continue",
             verticalAlign: "center",
             children: []
-            })
+          })
         ]
-        });
+      });
 
-        const row3 = new TableRow({
-        height: { value: 8.34 * 567, rule: HeightRule.EXACT },
+      const row3 = new TableRow({
+        height: { value: 8.34 * 567, rule: HeightRule.AT_LEAST },
         children: [
-            new TableCell({ 
+          new TableCell({
             width: { size: 15, type: WidthType.PERCENTAGE },
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: "요약", alignment: AlignmentType.CENTER })
+              new Paragraph({ text: "요약", alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 85, type: WidthType.PERCENTAGE },
             columnSpan: 6,
             verticalAlign: "center",
             children: [
-                new Paragraph(summary)
+              new Paragraph(summary)
             ]
-            })
+          })
         ]
-        });
+      });
 
-        const row4 = new TableRow({
-        height: { value: 8.04 * 567, rule: HeightRule.EXACT },
+      const row4 = new TableRow({
+        height: { value: 8.04 * 567, rule: HeightRule.AT_LEAST },
         children: [
-            new TableCell({ 
+          new TableCell({
             width: { size: 15, type: WidthType.PERCENTAGE },
             verticalAlign: "center",
             children: [
-                new Paragraph({ text: "느낀점", alignment: AlignmentType.CENTER })
+              new Paragraph({ text: "느낀점", alignment: AlignmentType.CENTER })
             ]
-            }),
-            new TableCell({ 
+          }),
+          new TableCell({
             width: { size: 85, type: WidthType.PERCENTAGE },
             columnSpan: 6,
             verticalAlign: "center",
             children: [
-                new Paragraph(reflection)
+              new Paragraph(reflection)
             ]
-            })
+          })
         ]
-        });
+      });
 
 
       // Row 5: Note row (merged across all 7 columns)
@@ -298,13 +309,13 @@
       const row5 = new TableRow({
         height: { value: 2.94 * 567, rule: HeightRule.EXACT },
         children: [
-          new TableCell({ 
+          new TableCell({
             width: { size: 100, type: WidthType.PERCENTAGE },
             columnSpan: 7,
             verticalAlign: "center",
             children: [
-                new Paragraph(noteText1), 
-                new Paragraph(noteText2), 
+              new Paragraph(noteText1),
+              new Paragraph(noteText2),
             ]
           })
         ]
@@ -319,14 +330,14 @@
       // Create the document with one section containing the table
       const doc = new Document({
         styles: {
-            default: {
+          default: {
             document: {
-                run: {
+              run: {
                 font: "맑은 고딕",
                 size: 22,
-                },
+              },
             },
-            },
+          },
         },
         sections: [{
           properties: {},
@@ -348,4 +359,5 @@
     });
   </script>
 </body>
+
 </html>
