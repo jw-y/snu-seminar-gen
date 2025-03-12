@@ -24,4 +24,4 @@ jobs:
 
       - name: Run script
         run: |
-          python news_fetcher.py
+          python fetch_latest.py
