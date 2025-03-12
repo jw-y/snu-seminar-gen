@@ -1,0 +1,27 @@
+name: Fetch and Update News
+
+# every wendesday at 8:00 am Seoul time
+on:
+  schedule:
+    - cron: '0 23 * * 2'
+  workflow_dispatch:     # Allows a manual trigger if needed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 pytz
+
+      - name: Run script
+        run: |
+          python news_fetcher.py

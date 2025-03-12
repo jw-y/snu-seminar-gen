@@ -52,7 +52,7 @@
     /* Optional: styling for the form container */
     form {
       max-width: 600px;
-      margin: 0 auto;
+      /*margin: 0 auto;*/
     }
   </style>
 </head>
@@ -92,11 +92,17 @@
     <div class="form-row">
       <button type="submit">Generate Document</button>
     </div>
-    <!--<div id="latest"></div>-->
     <p><a href="https://gsds.snu.ac.kr/news/news-seminar/" target="_blank" rel="noopener noreferrer">세미나 리스트 링크</a></p>
+    <div id="latest"></div>
   </form>
 
   <script>
+    fetch('latest_news.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('latest').innerHTML = data;
+      })
+      .catch(error => console.log(error));
     /*
     const seminarListURL = 'https://gsds.snu.ac.kr/news/news-seminar/';
     fetch(seminarListURL)
