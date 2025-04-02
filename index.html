@@ -32,7 +32,8 @@
 
     .form-row {
       display: flex;
-      align-items: center;
+      /*align-items: center;*/
+      align-items: flex-start;
       margin-bottom: 1rem;
     }
 
@@ -47,6 +48,24 @@
     .form-row textarea {
       flex: 1;
       padding: 0.5rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      box-sizing: border-box;
+    }
+
+    .count-info {
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 0.3rem;
     }
 
     /* Optional: styling for the form container */
@@ -82,11 +101,17 @@
     </div>
     <div class="form-row">
       <label for="summary">Summary:</label>
-      <textarea id="summary" rows="4" required></textarea>
+      <div class="input-group">
+        <textarea id="summary" rows="4" required></textarea>
+        <div id="summary-count" class="count-info"></div>
+      </div>
     </div>
     <div class="form-row">
       <label for="reflection">Reflection:</label>
-      <textarea id="reflection" rows="4" required></textarea>
+      <div class="input-group">
+        <textarea id="reflection" rows="4" required></textarea>
+        <div id="reflection-count" class="count-info"></div>
+      </div>
     </div>
     <p>간단한 요약과 느낀점을 각 200자 정도로 기술하여 주시기 바랍니다.</p>
     <div class="form-row">
@@ -390,6 +415,26 @@
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
       });
+    });
+  </script>
+  <script>
+    /* word count */
+    function countUnits(text) {
+      const korean = (text.match(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g) || []).length;
+      const english = (text.match(/\b[a-zA-Z]+\b/g) || []).length;
+      return korean + english;
+    }
+
+    function updateCount(textareaId, countId) {
+      const text = document.getElementById(textareaId).value;
+      const total = countUnits(text);
+      document.getElementById(countId).textContent = `Word Count: ${total}`;
+    }
+
+    ['summary', 'reflection'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () =>
+        updateCount(id, `${id}-count`)
+      );
     });
   </script>
 </body>
