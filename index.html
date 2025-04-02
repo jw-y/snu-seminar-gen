@@ -122,6 +122,25 @@
   </form>
 
   <script>
+    /* word count */
+    function countUnits(text) {
+      const korean = (text.match(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g) || []).length;
+      const english = (text.match(/\b[a-zA-Z]+\b/g) || []).length;
+      return korean + english;
+    }
+
+    function updateCount(textareaId, countId) {
+      const text = document.getElementById(textareaId).value;
+      const total = countUnits(text);
+      document.getElementById(countId).textContent = `Word Count: ${total}`;
+    }
+
+    ['summary', 'reflection'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () =>
+        updateCount(id, `${id}-count`)
+      );
+    });
+
     fetch('latest_news.html')
       .then(response => response.text())
       .then(data => {
@@ -160,6 +179,12 @@
         if (storedValue) {
           document.getElementById(field).value = storedValue;
         }
+      });
+      ['summary', 'reflection'].forEach(id => {
+        const countId = `${id}-count`;
+        const textarea = document.getElementById(id);
+        textarea.addEventListener('input', () => updateCount(id, countId));
+        updateCount(id, countId); // ← ensures count shows immediately on load
       });
     });
 
@@ -415,33 +440,6 @@
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
       });
-    });
-  </script>
-  <script>
-    /* word count */
-    function countUnits(text) {
-      const korean = (text.match(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g) || []).length;
-      const english = (text.match(/\b[a-zA-Z]+\b/g) || []).length;
-      return korean + english;
-    }
-
-    function updateCount(textareaId, countId) {
-      const text = document.getElementById(textareaId).value;
-      const total = countUnits(text);
-      document.getElementById(countId).textContent = `Word Count: ${total}`;
-    }
-
-    ['summary', 'reflection'].forEach(id => {
-      document.getElementById(id).addEventListener('input', () =>
-        updateCount(id, `${id}-count`)
-      );
-    });
-
-    ['summary', 'reflection'].forEach(id => {
-      const countId = `${id}-count`;
-      const textarea = document.getElementById(id);
-      textarea.addEventListener('input', () => updateCount(id, countId));
-      updateCount(id, countId); // ← ensures count shows immediately on load
     });
   </script>
 </body>
