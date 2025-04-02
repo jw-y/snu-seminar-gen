@@ -436,6 +436,13 @@
         updateCount(id, `${id}-count`)
       );
     });
+
+    ['summary', 'reflection'].forEach(id => {
+      const countId = `${id}-count`;
+      const textarea = document.getElementById(id);
+      textarea.addEventListener('input', () => updateCount(id, countId));
+      updateCount(id, countId); // ← ensures count shows immediately on load
+    });
   </script>
 </body>
 
