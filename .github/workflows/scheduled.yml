@@ -18,9 +18,12 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Install Tesseract
+        run: sudo apt-get update && sudo apt-get install -y tesseract-ocr
+
       - name: Install dependencies
         run: |
-          pip install requests beautifulsoup4 pytz
+          pip install requests beautifulsoup4 pytz pytesseract
 
       - name: Run script
         run: |
@@ -31,5 +34,4 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add latest_news.html
-          git commit -m "Update latest news"
-          git push
+          git diff --cached --quiet || (git commit -m "Update latest news" && git push)
