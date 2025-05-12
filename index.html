@@ -73,6 +73,7 @@
       max-width: 600px;
       /*margin: 0 auto;*/
     }
+
     .spinner::after {
       content: "";
       display: inline-block;
@@ -137,10 +138,10 @@
 
   <form id="hiddenGeminiForm" action="#" method="post" autocomplete="on">
     <p style="font-size: 0.9em; color: #555; margin-bottom: 0.5rem;">
-      🔒 이 키는 오직 이 브라우저의 로컬 저장소에만 저장되며, 서버로 전송되지 않습니다.
+      🔒 이 키는 서버로 전송되지 않습니다.
     </p>
     <div class="form-row" style="align-items: center; gap: 0.5rem;">
-      <input type="text" name="username" autocomplete="username" style="display: none;" value="" />
+      <input type="text" name="username" autocomplete="username" style="display: none;" value="gemini_user" />
       <input
         type="password"
         id="gemini_api_key"
