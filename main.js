@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "speaker",
     "summary",
     "reflection",
-    "gemini_api_key" // ✅ include the API key
+    //"gemini_api_key" // ✅ include the API key
   ];
   fields.forEach(field => {
     const storedValue = localStorage.getItem(field);
@@ -196,36 +196,45 @@ const spinner = document.getElementById("genSpinner");
 const buttonText = document.getElementById("genButtonText");
 
 button.addEventListener("click", async () => {
-    if (!latestOCR || !latestNotice) return alert("뉴스 데이터를 아직 불러오지 못했습니다.");
-  
-    const apiKey = document.getElementById("gemini_api_key").value.trim();
-    if (!apiKey) return alert("Gemini API Key를 입력해주세요.");
-  
-    // ✅ Store API key in localStorage
-    localStorage.setItem("gemini_api_key", apiKey);
-  
-    // Show spinner
-    spinner.style.display = "inline-block";
-    button.disabled = true;
-    buttonText.textContent = "Generating...";
-  
-    try {
-      const { title, speaker, summary, reflection } = await callGemini(apiKey, latestOCR, latestNotice);
-  
-      document.getElementById("title").value = title;
-      document.getElementById("speaker").value = speaker;
-      document.getElementById("summary").value = summary;
-      document.getElementById("reflection").value = reflection;
-  
-      updateCount("summary", "summary-count");
-      updateCount("reflection", "reflection-count");
-    } catch (err) {
-      console.error(err);
-      alert("Gemini 요약 중 오류 발생");
-    } finally {
-      // Hide spinner
-      spinner.style.display = "none";
-      button.disabled = false;
-      buttonText.textContent = "Generate";
-    }
+  if (!latestOCR || !latestNotice) {
+    alert("뉴스 데이터를 아직 불러오지 못했습니다.");
+    return;
+  }
+
+  const apiKey = document.getElementById("gemini_api_key").value.trim();
+  if (!apiKey) {
+    alert("Gemini API Key를 입력해주세요.");
+    return;
+  }
+
+  // ✅ Save the API key locally
+  //localStorage.setItem("gemini_api_key", apiKey);
+
+  // ✅ Show spinner + disable button
+  toggleSpinner(true);
+
+  try {
+    const { title, speaker, summary, reflection } = await callGemini(apiKey, latestOCR, latestNotice);
+
+    document.getElementById("title").value = title;
+    document.getElementById("speaker").value = speaker;
+    document.getElementById("summary").value = summary;
+    document.getElementById("reflection").value = reflection;
+
+    updateCount("summary", "summary-count");
+    updateCount("reflection", "reflection-count");
+  } catch (err) {
+    console.error(err);
+    alert("Gemini 요약 중 오류 발생");
+  } finally {
+    // ✅ Hide spinner + re-enable button
+    toggleSpinner(false);
+  }
 });
+
+// ✅ Helper to show/hide spinner
+function toggleSpinner(show) {
+  spinner.style.display = show ? "inline-block" : "none";
+  button.disabled = show;
+  buttonText.textContent = show ? "Generating... " : "Generate";
+}
