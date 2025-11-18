@@ -1,68 +1,76 @@
-<p>Last update: 2025-11-12 08:23:03</p>
+<p>Last update: 2025-11-19 08:21:17</p>
 <div style="white-space: pre-wrap; font-family: monospace; background: #f9f9f9; padding: 1em; border: 1px solid #ccc;">
 SNU Data Science Seminar
 
-“AI Custom Chip Enabling
-Sustainable AI Compute Infrastructure”
+“Training LLMs for (Multi-Agent)
 
-Time : 09:00 - 10:30, Nov 12, 2025
+Sequential Decision Making”
 
-Zoom: https://snu-ac-kr.zoom.us/j/2507466:
+Time : 09:00 - 10:30, Nov 19, 2025
+Zoom: https://snu-ac-kr.zoom.us/j.
+
 Abstract
 
-The exponential growth of artificial intelligence (AI) has created an urgent need for
-sustainable compute infrastructure capable of balancing performance, efficiency, and
-scalability. This seminar introduces Rebellions, the only AI hardware unicorn in the Asia-
-Pacific region, and its mission to enable energy-efficient, open, and future-proof AI
-datacenter solutions.
+Large Language Models (LLMs) are increasingly deployed as autonomous agents, yet their training
+paradigm—based on next-token prediction—misaligns with the sequential and interactive nature of
+real decision-making. This talk explores how LLMs can be understood, evaluated, and trained as
+sequential decision-makers within online leaming and multi-agent game-theoretic frameworks. In
+the first part, we introduce the notion of regret as a quantitative measure of decision quality and
+investigate whether LLM agents exhibit no-regret behavior across stochastic, adversarial, and multi-
+player environments. Empirical results show that pre-trained LLMs often approximate Follow-the-
+Perturbed-Leader (FTPL) dynamics—achieving near no-regret performance—while certain
+counterexamples reveal structural limitations. We then present the Regret-Loss framework, a novel
+training objective that provably yields no-regret behavior in transformer architectures. Theoretical
+results connect this loss to generalization guarantees and show that single-layer self-attention
+networks naturally leam Follow-the-Regularized-Leader (FTRL) updates under this loss. In the
+second part, we extend this perspective to multi-agent reinforcement leaning. proposing MAPoRL
+(Multi-Agent Post-Co-Training with RL) for collaborative LLM systems. Through verifier-based
+reward shaping and multi-agent PPO, MAPoRL enhances inter-agent cooperation and performance
+on benchmarks such as GSM8K and ANLI. even under cross-domain transfer. Together, these
+results establish a unified view of LLMs as adaptive. interactive learners, offering both theoretical
+insights and practical pathways toward training language-based agents with provable decision-
+making guarantees.
 
-The talk highlights the paradigm shift in AI compute demand from training-centric to
-inference-centric workloads, where power efficiency and cost-effectiveness determine
-competitiveness. By fully integrating with open-source AI ecosystems such as PyTorch,
-Triton, and vLLM, Rebellions is democratizing access to high-performance inference
-hardware while breaking free from proprietary software dependencies.
+Chanwoo Park
 
-Finally, the presentation outlines how Rebellions’ co-optimized hardware-software stack,
-proven in large-scale commercial deployments with Tier-1 partners such as SK hynix, ARM,
-Samsung and Marvell, is shaping the next era of AI infrastructure—one that is sustainable,
-sovereign, and open-source-driven.
-
-Sunghyun Park
-
-* Co-founder and CEO, Rebellions
-* Vice President, Morgan Stanley
-+ ASIC Design Lead, SpaceX
-
-* Sr. Research Scientist, Intel Labs
-+ SM/PhD, MIT EECS
-
-+ BS, KAIST EE
+Chanwoo Park is a final-year Ph.D. student in Electrical Engineering
+and Computer Science at the Massachusetts Institute of Technology,
+advised by Professor Asu Ozdaglar. His research focuses on multi-
+agent large language models training and theoretical understanding of
+LLMs, bridging theory and practice in sequential decision-making. He
+has published in venues including NewIPS, ICLR, CVPR, and JMLR.
+and previously held research roles at Amazon AGI. NAVER AI
+Research, and Citadel. Chanwoo is a recipient of the Siebel Scholars,
+ba ‘Amazon AI Fellowship, and Takeda Fellowship.
 
 ®@ SNU Data Science
 
-MBWSD GO|ELALOIAACHSIS! BK21rouR
+MBS GIO[EVAO|[ATHStA! BKZ1rour
+
+507466555
+
 
 </div><div class="container">
 <div class="row">
 <div class="col-lg-12">
 <div class="single-title">
 <h2>
-                            Rebellions 박성현 대표, AI Custom Chip Enabling Sustainable AI Compute Infrastructure, 11월 12일(수)                        </h2>
+                            MIT 박찬우 연구원, Training LLMs for (Multi-Agent) Sequential Decision Making, 11월 19일(수)                        </h2>
 <h4>
-                            November 11, 2025                        </h4>
+                            November 14, 2025                        </h4>
 </div>
 </div>
 </div>
 <div class="row">
 <div class="col-lg-12">
 <div class="page-container-content">
-<p>지난 학기 한국의 AI 가속 반도체 스타트업 Furiosa의 백준호 대표를 초청한데 이어 이번 학기에는 Furiosa와 경쟁하는 Rebellions의 공동창업자 박성현 대표를 초청했습니다. 박 대표는 이번 강연에서 급격히 성장하는 AI 컴퓨팅 수요 속에서 성능과 효율, 확장성을 동시에 달성하기 위한 지속 가능한 컴퓨팅 인프라의 방향성을 소개합니다.</p>
-<p>박성현 대표는 KAIST 전기전자공학부를 졸업하고, MIT에서 전기컴퓨터과학 석박사를 받았습니다. 이후 Intel Labs, SpaceX, Morgan Stanley에서 근무한 후 2020년 Rebellions을 공동 창업했습니다.</p>
-<p>Title: AI Custom Chip Enabling Sustainable AI Compute Infrastructure</p>
-<p>Time: 2025. 11. 12. (Wed) 09:00 ~ 10:30 </p>
+<p>이번 주 데이터사이언스 세미나 연사는 MIT EECS(전기컴퓨터과학부)에서 박사 졸업을 앞두고 있는 박찬우 연구원입니다. 박 연구원은 이번 강연에서 LLM을 순차적·상호작용적 의사결정의 주체로 이해하고 훈련하는 새로운 관점을 소개합니다.</p>
+<p>박 연구원은 서울대 통계학과를 졸업 후 현재 MIT에서 Asu Ozdaglar 교수의 지도 아래 LLM과 멀티에이전트 학습을 연구하고 있습니다. 또한 Amazon AGI, NAVER AI Research, Citadel 등에서 인턴으로 연구 경험을 쌓았습니다.</p>
+<p>Title: Training LLMs for (Multi-Agent) Sequential Decision Making</p>
+<p>Time: 2025. 11. 19. (Wed) 09:00 ~ 10:30</p>
 <p>Zoom: <a href="https://snu-ac-kr.zoom.us/j/2507466555">https://snu-ac-kr.zoom.us/j/2507466555</a></p>
 <div class="wp-block-image">
-<figure class="aligncenter size-large"><img alt="" class="wp-image-16984" decoding="async" fetchpriority="high" height="1024" sizes="(max-width: 724px) 100vw, 724px" src="https://gsds.snu.ac.kr/wp-content/uploads/2025/11/1-724x1024.jpg" srcset="https://gsds.snu.ac.kr/wp-content/uploads/2025/11/1-724x1024.jpg 724w, https://gsds.snu.ac.kr/wp-content/uploads/2025/11/1-212x300.jpg 212w, https://gsds.snu.ac.kr/wp-content/uploads/2025/11/1-768x1086.jpg 768w, https://gsds.snu.ac.kr/wp-content/uploads/2025/11/1.jpg 794w" width="724"/></figure></div> </div>
+<figure class="aligncenter size-large"><img alt="" class="wp-image-17024" decoding="async" fetchpriority="high" height="1024" sizes="(max-width: 724px) 100vw, 724px" src="https://gsds.snu.ac.kr/wp-content/uploads/2025/11/1-1-724x1024.jpg" srcset="https://gsds.snu.ac.kr/wp-content/uploads/2025/11/1-1-724x1024.jpg 724w, https://gsds.snu.ac.kr/wp-content/uploads/2025/11/1-1-212x300.jpg 212w, https://gsds.snu.ac.kr/wp-content/uploads/2025/11/1-1-768x1086.jpg 768w, https://gsds.snu.ac.kr/wp-content/uploads/2025/11/1-1.jpg 794w" width="724"/></figure></div> </div>
 </div>
 </div>
 <div class="row">
