@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Seminar Docx Generator</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #d9e2ec;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success-bg: #ecfdf3;
+      --success-text: #166534;
+      --error-bg: #fef2f2;
+      --error-text: #991b1b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem 2.5rem;
+    }
+
+    .hero {
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .hero p {
+      margin-top: 0.5rem;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      margin: 0;
+    }
+
+    .helper {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .form-row label {
+      font-weight: 600;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.62rem 0.72rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.96rem;
+      background: #fff;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+    }
+
+    textarea {
+      min-height: 8.25rem;
+      resize: vertical;
+    }
+
+    .count-info {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-top: 0.4rem;
+    }
+
+    button {
+      border: 1px solid transparent;
+      border-radius: 10px;
+      padding: 0.65rem 0.95rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--primary);
+      border-color: #bfd2ff;
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5ff;
+    }
+
+    .btn-tertiary {
+      background: #f8fafc;
+      color: #334155;
+      border-color: #cbd5e1;
+    }
+
+    .btn-tertiary:hover {
+      background: #f1f5f9;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .status {
+      display: none;
+      margin-top: 0.8rem;
+      border-radius: 10px;
+      padding: 0.65rem 0.75rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+    }
+
+    .status.success {
+      display: block;
+      background: var(--success-bg);
+      color: var(--success-text);
+      border-color: #bbf7d0;
+    }
+
+    .status.error {
+      display: block;
+      background: var(--error-bg);
+      color: var(--error-text);
+      border-color: #fecaca;
+    }
+
+    .status.info {
+      display: block;
+      background: #eff6ff;
+      color: #1e40af;
+      border-color: #bfdbfe;
+    }
+
+    .spinner::after {
+      content: "";
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      border: 2px solid #ccc;
+      border-top-color: #333;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .news-card {
+      margin-top: 1rem;
+    }
+
+    .news-link {
+      margin-bottom: 0.8rem;
+      display: inline-block;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        padding: 1.25rem 0.85rem 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>Seminar Docx Generator</h1>
+      <p>세미나 정보를 정리하고 AI로 초안을 생성한 뒤, 바로 제출용 DOCX로 다운로드하세요.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Seminar Report</h2>
+        <p class="helper">간단한 요약과 느낀점을 각 200자 정도로 기술하여 주시기 바랍니다.</p>
+        <form id="seminarForm">
+          <div class="form-row">
+            <label for="filename">Filename</label>
+            <input type="text" id="filename" value="seminar_statement.docx" required />
+          </div>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" required />
+          </div>
+          <div class="form-row">
+            <label for="studentId">Student ID</label>
+            <input type="text" id="studentId" required />
+          </div>
+          <div class="form-row">
+            <label for="speaker">Speaker</label>
+            <input type="text" id="speaker" required />
+          </div>
+          <div class="form-row">
+            <label for="title">Title</label>
+            <input type="text" id="title" required />
+          </div>
+          <div class="form-row">
+            <label for="summary">Summary</label>
+            <div class="input-group">
+              <textarea id="summary" rows="7" required></textarea>
+              <div id="summary-count" class="count-info"></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="reflection">Reflection</label>
+            <div class="input-group">
+              <textarea id="reflection" rows="7" required></textarea>
+              <div id="reflection-count" class="count-info"></div>
+            </div>
+          </div>
+          <div class="button-row">
+            <button class="btn-primary" type="submit">Generate Document</button>
+          </div>
+          <div id="doc-status" class="status" role="status" aria-live="polite"></div>
+        </form>
+      </article>
+
+      <article class="card">
+        <h2>AI Assistant</h2>
+        <p class="helper">Gemini 또는 OpenAI를 선택하여 요약/느낀점을 자동 생성합니다. 키는 브라우저에서만 사용됩니다.</p>
+        <form id="aiForm" action="#" method="post" autocomplete="on">
+          <div class="form-row">
+            <label for="ai_provider">Provider</label>
+            <select id="ai_provider">
+              <option value="gemini">Gemini</option>
+              <option value="openai">OpenAI</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="ai_model">Model</label>
+            <select id="ai_model"></select>
+          </div>
+          <div class="form-row">
+            <label for="ai_prompt_instructions">Prompt Instructions</label>
+            <textarea id="ai_prompt_instructions" rows="8" spellcheck="false"></textarea>
+            <div class="count-info">OCR/NOTICE 입력 블록과 출력 JSON 스키마는 고정되어 유지됩니다.</div>
+          </div>
+          <div class="form-row">
+            <label for="ai_target_min">Target Min</label>
+            <input id="ai_target_min" type="number" min="50" max="2000" step="1" value="400" />
+          </div>
+          <div class="form-row">
+            <label for="ai_target_max">Target Max</label>
+            <input id="ai_target_max" type="number" min="50" max="2000" step="1" value="500" />
+            <div class="count-info">AI가 summary/reflection에 맞출 목표 길이 범위입니다.</div>
+          </div>
+          <div class="form-row">
+            <input type="text" name="username" autocomplete="username" style="display: none;" value="" />
+            <label for="ai_api_key">API Key</label>
+            <input
+              type="password"
+              id="ai_api_key"
+              name="password"
+              placeholder="Enter API Key"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <div class="button-row">
+            <button class="btn-tertiary" type="button" id="resetPromptSettings">Reset Prompt Settings</button>
+            <button class="btn-secondary" type="button" id="generateFromAI" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+              <span id="genSpinner" class="spinner" style="display: none;"></span>
+              <span id="genButtonText">Generate</span>
+            </button>
+          </div>
+          <div id="ai-status" class="status" role="status" aria-live="polite"></div>
+        </form>
+      </article>
+    </section>
+
+    <section class="card news-card">
+      <h2>Latest Seminar Notice</h2>
+      <a class="news-link" href="https://gsds.snu.ac.kr/news/news-seminar/" target="_blank" rel="noopener noreferrer">세미나 리스트 링크</a>
+      <div id="latest"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

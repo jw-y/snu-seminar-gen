@@ -9,29 +9,32 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.12'
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
 
       - name: Install Tesseract
-        run: sudo apt-get update && sudo apt-get install -y tesseract-ocr
+        run: sudo apt-get update && sudo apt-get install -y tesseract-ocr tesseract-ocr-kor
 
       - name: Install dependencies
-        run: |
-          pip install requests beautifulsoup4 pytz pytesseract
+        run: uv sync --frozen
 
       - name: Run script
-        run: |
-          python fetch_latest.py
+        run: uv run python scripts/fetch_latest.py
 
       - name: Commit and Push changes
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add latest_news.html
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add frontend/latest_news.html
           git diff --cached --quiet || (git commit -m "Update latest news" && git push)
