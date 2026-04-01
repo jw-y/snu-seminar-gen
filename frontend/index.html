@@ -96,6 +96,19 @@
       flex-direction: column;
     }
 
+    .target-range-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .target-range-sep {
+      color: var(--muted);
+      font-weight: 600;
+      text-align: center;
+    }
+
     input,
     select,
     textarea {
@@ -320,12 +333,12 @@
             <div class="count-info">OCR/NOTICE 입력 블록과 출력 JSON 스키마는 고정되어 유지됩니다.</div>
           </div>
           <div class="form-row">
-            <label for="ai_target_min">Target Min</label>
-            <input id="ai_target_min" type="number" min="50" max="2000" step="1" value="400" />
-          </div>
-          <div class="form-row">
-            <label for="ai_target_max">Target Max</label>
-            <input id="ai_target_max" type="number" min="50" max="2000" step="1" value="500" />
+            <label for="ai_target_min">Target Length (Min ~ Max)</label>
+            <div class="target-range-row">
+              <input id="ai_target_min" type="number" min="50" max="2000" step="1" value="400" />
+              <span class="target-range-sep">~</span>
+              <input id="ai_target_max" type="number" min="50" max="2000" step="1" value="500" />
+            </div>
             <div class="count-info">AI가 summary/reflection에 맞출 목표 길이 범위입니다.</div>
           </div>
           <div class="form-row">
