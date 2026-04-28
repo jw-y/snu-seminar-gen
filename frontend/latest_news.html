@@ -1,6 +1,50 @@
-<p>Last update: 2026-04-22 08:38:57</p>
+<p>Last update: 2026-04-29 08:57:49</p>
 <div style="white-space: pre-wrap; font-family: monospace; background: #f9f9f9; padding: 1em; border: 1px solid #ccc;">
-[No image found for OCR]
+SNU Data Science Seminar
+
+“Rethinking Quantization for LLM Efficiency:
+Achieving Zero Overhead at Ultra-Low Bitwidths”
+
+Time : 09:00 - 10:30, Apr 22, 2026
+Zoom: https://snu-ac-kr.zoom.us/j/2507466555
+
+Abstract
+
+As LLMs continue to scale in context length, the memory bottleneck caused by the Key-
+Value (KV) cache has emerged as a primary barrier to efficient inference. While quantization
+is a standard approach to mitigate this, conventional methods often suffer from significant
+precision loss at ultra-low bitwidths and hidden memory overheads due to per-block
+quantization constants. In this seminar, we explore a transformative approach to quantization
+that achieves near-lossless performance without metadata overhead. We begin by discussing
+the theoretical foundations of Quantized Johnson-Lindenstrauss (QJL) and PolarQuant, which
+introduced the concept of data-oblivious, unbiased estimation through random rotations. By
+transforming the distribution of activations into a mathematically tractable form, these
+techniques allow for a "zero-overhead" architecture where bit-savings translate directly into
+physical memory reduction. Furthermore, we will discuss how these principles were
+integrated into TurboQuant, a recent breakthrough with Google Research. TurboQuant
+demonstrates that by combining structural MSE-optimization with unbiased vector
+quantization, it is possible to reduce KV cache memory by a factor of 6x while maintaining
+downstream accuracy in long-context benchmarks.
+
+Insu Han
+
+Insu Han is an Assistant Professor in the School of Electrical
+Engineering at KAIST. Currently, he is also serving as a Visiting
+Faculty Researcher at Google Research. Prior to joining KAIST, he
+was an Applied Scientist at Adobe Firefly and a Postdoctoral
+Fellow at the Yale Institute for Foundations of Data Science (FDS).
+He eamed his PhD., M.S., and B.S. in Electrical Engineering from
+KAIST. His research focuses on developing efficient and scalable
+algorithms for AI foundation models by bridging rigorous theory
+and practical optimization. Dr. Han is a recipient of the Microsoft
+Research Asia Fellowship (2019) and the Roberts Innovation Fund
+Award (2024) for his impactful research on developing powerfil,
+cost-effective AI solutions.
+
+@ SNU Data Science
+
+서 울 대 학교 데 이 터 사 이 언 스 대학원 BKZ1rour
+
 </div><div class="container">
 <div class="row">
 <div class="col-lg-12">
@@ -17,10 +61,11 @@
 <div class="page-container-content">
 <p>이번 세미나 연사는 최근 Google과 TurboQuant 공동연구를 통해 세계적으로 주목받고 있는 한인수 교수입니다. 한 교수는 이번 강연에서 TurboQuant 방법론을 중심으로, KV 캐시 메모리를 최대 6배까지 절감하면서도 long-context 벤치마크에서 정확도를 유지하는 최신 연구를 소개합니다. 이론적 기반부터 실제 시스템 구현까지 폭넓게 다룰 예정입니다.</p>
 <p>KAIST 한인수 교수는 Google Research Visiting Faculty Researcher이기도 합니다. KAIST 신진우 교수의 지도 아래 박사 학위를 취득했으며, Microsoft Research Asia Fellowship (2019)과 Roberts Innovation Fund Award (2024)를 수상한 바 있습니다.</p>
-<p>Title: Rethinking Quantization for LLM Efficiency: Achieving Zero Overhead at Ultra-Low Bitwidths<br>
-Time: 2026. 04. 22. (Wed) 09:00 ~ 10:30<br>
-Zoom: https://snu-ac-kr.zoom.us/j/2507466555  </br></br></p>
-</div>
+<p>Title: Rethinking Quantization for LLM Efficiency: Achieving Zero Overhead at Ultra-Low Bitwidths<br/>Time: 2026. 04. 22. (Wed) 09:00 ~ 10:30<br/>Zoom: https://snu-ac-kr.zoom.us/j/2507466555</p>
+<p> </p>
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img alt="" class="wp-image-18122" decoding="async" fetchpriority="high" height="1024" sizes="(max-width: 724px) 100vw, 724px" src="https://gsds.snu.ac.kr/wp-content/uploads/2026/04/1-2-724x1024.jpg" srcset="https://gsds.snu.ac.kr/wp-content/uploads/2026/04/1-2-724x1024.jpg 724w, https://gsds.snu.ac.kr/wp-content/uploads/2026/04/1-2-212x300.jpg 212w, https://gsds.snu.ac.kr/wp-content/uploads/2026/04/1-2-768x1086.jpg 768w, https://gsds.snu.ac.kr/wp-content/uploads/2026/04/1-2.jpg 794w" width="724"/></figure>
+</div> </div>
 </div>
 </div>
 <div class="row">
