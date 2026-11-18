@@ -1,50 +1,42 @@
-<p>Last update: 2026-11-11 11:37:01</p>
+<p>Last update: 2026-11-18 13:03:25</p>
 <div style="white-space: pre-wrap; font-family: monospace; background: #f9f9f9; padding: 1em; border: 1px solid #ccc;">
 SNU Data Science Seminar
 
-“Self-Improving AI Agents and Domain Scaling”
+“Fast Code Sandboxes for AI Agents”
 
-Time : 09:00 - 10:30, Nov 11, 2026
-Zoom: https: /j/25074665
+Time : 09:00 - 10:30, Nov 18, 2026
+Zoom: https://snu-ac-kr.zoom.us/j/2507466555
 
-snu-ac-kr.zoom.us
+Abstract
 
-fundamentally open-loop: their data, objectives, training recipes, system designs,
-and evaluation criteria are largely fixed by humans before deployment. This talk presents Self-Improving
-methods and EXAONE Foundry, a closed-loop platform for building Enterprise Al agents by unifying the
-full intelligence lifecycle: from generating and evaluating domain-specific training data, to automatically
-searching for effective hyperparameters and training configurations, designing agentic workflows with
-system architectures, and continuously assessing their performance. Its central goal is to close two
-intertwined gaps: the gap between what human experts can explicitly articulate and the tacit knowledge
-embedded in their judgments, and the gap between that expertise and the cognitive limits that prevent
-humans from exhaustively exploring data, models, workflows, and evaluation strategies. EXAONE
-Foundry learns task-specific metrics, rubrics, and reward signals from expert demonstrations, evaluation
-traces, and procedural decisions, then uses them to iteratively improve not only the model, but also the
-surrounding data pipeline, training process, tool-use policy, memory, and multi-agent system itself. By
-turning implicit expertise into scalable supervision and every system outcome into new learning experience,
-EXAONE Foundry moves toward AI agents that can identify their own limitations and recursively refine
-how they learn and act. Ultimately, such a foundry will provide an open-ended RL environment in which
-increasingly capable agents generate challenges, recover rewards, test one another, and co-evolve:
-providing a plausible transition path from broadly capable AGI to continuously  self-improving
-superintelligence
+Al agents act via code. Given a task, the agent software calls a language model to plan
+what to do. The model outputs code (e.g., Python scripts). By executing that code, an
+agent can search the web, analyze data, or order a pizza. The execution result is fed
+back to the language model to produce the next action. By sending the code to a
+dedicated sandbox, agents can scale more easily.
 
-Moontae Lee
+In this talk, I argue that existing sandboxes are poorly suited to AI agents: startup costs
+are high, and support for iteration is weak. In the first part, I introduce readie. It
+achieves extremely low-latency code execution through learned memory-state
+templates. Instead of loading a predefined disk image, readie memory-copies one of
+several provisioned templates, eliminating resource load time almost entirely. In the
+second part, I describe kishu. It makes iterative code revisions run much faster through
+incremental checkpoints. The key idea is a virtual page abstraction that saves dirty
+objects correctly and more efficiently. This talk will present these ideas through live
+demos and diagrams, with minimal text on slides.
 
-Moontae Lee is Vice President and Head of the Superintelligence Lab at LG
-AI Research and an Assistant Professor at the University of Illinois Chicago.
-A frontier AI researcher with more than 15 years of experience in machine
-learning and over six years of building large language models, he develops
-full-stack AI systems spanning data and evaluation, pre- and post-training,
-preference alignment, agentic orchestration, and scalable deployment. His
-current research focuses on self-improving AI agents, adaptive reasoning and
-retrieval, learned evaluation, and large-scale multi-agent systems—particularly
-benchmarks and reinforcement-learning environments in which models
-continually learn from expert workflows and real-world experience. At LG, he
-has contributed to the EXAONE foundation models and coding agents. He is
-currently leading the research and development of enterprise AI and agent
-platforms, translating frontier research into production-scale AI services. He
-earned his Ph.D. in Computer Science from Cornell University and his M.S.
-from Stanford University.
+Yongjoo Park
+
+Yongjoo Park is an Assistant Professor in the Siebel
+School of Computing and Data Science at the
+University of Illinois Urbana-Champaign (UIUC). His
+research focuses on systems for data-intensive AI. He is
+a recipient of the NSF CAREER Award, the ACM
+SIGMOD 2025 Best Demo Award, and an Honorable
+Mention for the SIGMOD Jim Gray Doctoral
+Dissertation Award. He also co-founded Keebo, an
+automated data analytics startup built on his doctoral
+research.
 
 @ SNU Data Science
 
@@ -56,22 +48,22 @@ from Stanford University.
 <div class="col-lg-12">
 <div class="single-title">
 <h2>
-                            LG 이문태 박사, Self-Improving AI Agents and Domain Scaling, 11월 11일(수)                        </h2>
+                            UIUC 박용주 교수, Fast Code Sandboxes for AI Agents, 11월 18일(수)                        </h2>
 <h4>
-                            November 9, 2026                        </h4>
+                            November 16, 2026                        </h4>
 </div>
 </div>
 </div>
 <div class="row">
 <div class="col-lg-12">
 <div class="page-container-content">
-<p class="wp-block-paragraph">이번 주 데이터사이언스 세미나 연사는 LG AI Research Superintelligence Lab의 부사장 겸 소장인 이문태 교수입니다. 이 교수는 미국 일리노이대학교 시카고 캠퍼스 컴퓨터사이언스 교수도 겸임하고 있습니다. 이 교수는 이번 강연에서 전문가의 암묵적 지식을 학습하고 스스로 데이터, 학습 과정, 에이전트 구조 및 평가 체계를 개선하는 Self-Improving AI 에이전트와 이를 구현하기 위한 EXAONE Foundry 플랫폼을 소개합니다.</p>
-<p class="wp-block-paragraph">이 교수는 스탠포드에서 석사, 코넬대에서 컴퓨터사이언스 박사 학위를 받았으며, 2018년부터 일리노이대학교 교수로 재직해 왔습니다. 15년 이상의 머신러닝 연구 경험과 6년 이상의 대규모 언어모델 개발 경험을 바탕으로 현재 LG AI Research에서 데이터 및 평가, 모델 학습과 정렬, 에이전트 시스템 설계 등 AI 전반을 아우르는 연구를 수행하고 있습니다.</p>
-<p class="wp-block-paragraph">Title: Self-Improving AI Agents and Domain Scaling</p>
-<p class="wp-block-paragraph">Time: 2026. 11. 11. (Wed) 09:00 ~ 10:30</p>
-<p class="wp-block-paragraph">Zoom: https://snu-ac-kr.zoom.us/j/2507466555 <br/></p>
+<p class="wp-block-paragraph">이번 주 데이터사이언스 세미나 연사는 일리노이대학교 어바나-샴페인(UIUC) 컴퓨팅 및 데이터사이언스 대학의 박용주 교수입니다. 박 교수는 이번 강연에서 AI 에이전트를 위한 고속 코드 실행 환경(Fast Code Sandboxes)의 필요성을 설명하고, 실행 속도와 반복적인 코드 수정의 효율성을 획기적으로 개선하는 두 가지 시스템인 readie와 kishu를 소개합니다.</p>
+<p class="wp-block-paragraph">박 교수는 서울대 전기공학부에서 학사 학위를 받은 후, 미국 미시간대에서 컴퓨터공학 석사 및 박사 학위를 취득했습니다. 2019년부터 일리노이대 어바나-샴페인에서 교수로 재직하고 있으며, 데이터 분석 자동화 스타트업 Keebo를 공동 창업해 최고기술책임자(CTO)와 최고과학자(Chief Scientist)를 역임했습니다.</p>
+<p class="wp-block-paragraph">Title: Fast Code Sandboxes for AI Agents</p>
+<p class="wp-block-paragraph">Time: 2026. 11. 18. (Wed) 09:00 ~ 10:30</p>
+<p class="wp-block-paragraph">Zoom: https://snu-ac-kr.zoom.us/j/2507466555<br/></p>
 <div class="wp-block-image">
-<figure class="aligncenter size-large"><img alt="" class="wp-image-18908" decoding="async" height="1024" sizes="(max-width: 724px) 100vw, 724px" src="https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-724x1024.jpg" srcset="https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-724x1024.jpg 724w, https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-212x300.jpg 212w, https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-767x1085.jpg 767w, https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-1086x1536.jpg 1086w, https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-1448x2048.jpg 1448w, https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-scaled.jpg 1811w" width="724"/></figure>
+<figure class="aligncenter size-large"><img alt="" class="wp-image-18939" decoding="async" height="1024" sizes="(max-width: 724px) 100vw, 724px" src="https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-1-724x1024.jpg" srcset="https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-1-724x1024.jpg 724w, https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-1-212x300.jpg 212w, https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-1-767x1085.jpg 767w, https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-1-1086x1536.jpg 1086w, https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-1-1448x2048.jpg 1448w, https://gsds.snu.ac.kr/wp-content/uploads/2026/11/1-1-scaled.jpg 1811w" width="724"/></figure>
 </div> </div>
 </div>
 </div>
